@@ -303,7 +303,7 @@ func (ctl *Control) writer() {
 	for {
 		m, ok := <-ctl.sendCh
 		if !ok {
-			xl.Info("control writer is closing")
+			xl.Info("正在关闭客户端连接...")
 			return
 		}
 
@@ -392,7 +392,7 @@ func (ctl *Control) stoper() {
 	}
 
 	ctl.allShutdown.Done()
-	xl.Info("client exit success")
+	xl.Info("客户端关闭成功")
 	metrics.Server.CloseClient()
 }
 
@@ -461,7 +461,7 @@ func (ctl *Control) manager() {
 					resp.Error = util.GenerateResponseErrorString(fmt.Sprintf("new proxy [%s] error", m.ProxyName), err, ctl.serverCfg.DetailedErrorsToClient)
 				} else {
 					resp.RemoteAddr = remoteAddr
-					xl.Info("new proxy [%s] type [%s] success", m.ProxyName, m.ProxyType)
+					xl.Info("新的代理连接 [%s] type [%s] success", m.ProxyName, m.ProxyType)
 					metrics.Server.NewProxy(m.ProxyName, m.ProxyType)
 				}
 				ctl.sendCh <- resp

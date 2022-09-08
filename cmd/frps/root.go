@@ -100,6 +100,7 @@ var rootCmd = &cobra.Command{
 	Use:   "frps",
 	Short: "frps is the server of frp (https://github.com/fatedier/frp)",
 	RunE: func(cmd *cobra.Command, args []string) error {
+		log.Info("当前使用版本: " + version.Full())
 		if showVersion {
 			fmt.Println(version.Full())
 			return nil
@@ -117,6 +118,7 @@ var rootCmd = &cobra.Command{
 		} else {
 			cfg, err = parseServerCommonCfg(CfgFileTypeCmd, nil)
 		}
+
 		if err != nil {
 			return err
 		}
@@ -201,18 +203,17 @@ func parseServerCommonCfgFromCmd() (cfg config.ServerCommonConf, err error) {
 
 func runServer(cfg config.ServerCommonConf) (err error) {
 	log.InitLog(cfg.LogWay, cfg.LogFile, cfg.LogLevel, cfg.LogMaxDays, cfg.DisableLogColor)
-
 	if cfgFile != "" {
-		log.Info("frps uses config file: %s", cfgFile)
+		log.Info("使用指定配置文件进行启动: %s", cfgFile)
 	} else {
-		log.Info("frps uses command line arguments for config")
+		log.Info("使用默认配置文件进行启动")
 	}
 
 	svr, err := server.NewService(cfg)
 	if err != nil {
 		return err
 	}
-	log.Info("frps started successfully")
+	log.Info("frps启动成功")
 	svr.Run()
 	return
 }

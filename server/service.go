@@ -193,7 +193,7 @@ func NewService(cfg config.ServerCommonConf) (svr *Service, err error) {
 	ln = svr.muxer.DefaultListener()
 
 	svr.listener = ln
-	log.Info("frps tcp listen on %s", address)
+	log.Info("已承载tcp服务 %s", address)
 
 	// Listen for accepting connections from client using kcp protocol.
 	if cfg.KCPBindPort > 0 {
@@ -203,7 +203,7 @@ func NewService(cfg config.ServerCommonConf) (svr *Service, err error) {
 			err = fmt.Errorf("listen on kcp address udp %s error: %v", address, err)
 			return
 		}
-		log.Info("frps kcp listen on udp %s", address)
+		log.Info("已承载udp服务 %s", address)
 	}
 
 	// Listen for accepting connections from client using websocket protocol.
@@ -451,7 +451,7 @@ func (svr *Service) RegisterControl(ctlConn net.Conn, loginMsg *msg.Login) (err 
 	xl := xlog.FromContextSafe(ctx)
 	xl.AppendPrefix(loginMsg.RunID)
 	ctx = xlog.NewContext(ctx, xl)
-	xl.Info("client login info: ip [%s] version [%s] hostname [%s] os [%s] arch [%s]",
+	xl.Info("客户端接入: ip [%s] 版本 [%s] 用户名 [%s] os [%s] arch [%s]",
 		ctlConn.RemoteAddr().String(), loginMsg.Version, loginMsg.Hostname, loginMsg.Os, loginMsg.Arch)
 
 	// Check client version.

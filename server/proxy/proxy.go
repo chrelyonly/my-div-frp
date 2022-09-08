@@ -85,7 +85,7 @@ func (pxy *BaseProxy) GetUserInfo() plugin.UserInfo {
 
 func (pxy *BaseProxy) Close() {
 	xl := xlog.FromContextSafe(pxy.ctx)
-	xl.Info("proxy closing")
+	xl.Info("代理被关闭")
 	for _, l := range pxy.listeners {
 		l.Close()
 	}
@@ -173,7 +173,7 @@ func (pxy *BaseProxy) startListenHandler(p Proxy, handler func(Proxy, net.Conn, 
 						continue
 					}
 
-					xl.Warn("listener is closed: %s", err)
+					xl.Warn("已关闭监听来自: %s", err)
 					return
 				}
 				xl.Info("get a user connection [%s]", c.RemoteAddr().String())

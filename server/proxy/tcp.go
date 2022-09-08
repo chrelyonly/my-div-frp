@@ -61,7 +61,7 @@ func (pxy *TCPProxy) Run() (remoteAddr string, err error) {
 			return
 		}
 		pxy.listeners = append(pxy.listeners, listener)
-		xl.Info("tcp proxy listen port [%d]", pxy.cfg.RemotePort)
+		xl.Info("tcp代理端口 [%d]", pxy.cfg.RemotePort)
 	}
 
 	pxy.cfg.RemotePort = pxy.realPort
