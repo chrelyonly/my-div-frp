@@ -40,34 +40,34 @@
     </template>
     </el-table-column>
       <el-table-column
-          label="½ÓÈëÃû³Æ"
+          label="æŽ¥å…¥åç§°"
           prop="name"
           sortable>
       </el-table-column>
       <el-table-column
-          label="×ª·¢¶Ë¿Ú"
+          label="è½¬å‘ç«¯å£"
           prop="port"
           sortable>
       </el-table-column>
       <el-table-column
-          label="Á¬½ÓÊý"
+          label="è¿žæŽ¥æ•°"
           prop="conns"
           sortable>
       </el-table-column>
       <el-table-column
-          label="½øÈëÁ÷Á¿"
+          label="è¿›å…¥æµé‡"
           prop="traffic_in"
           :formatter="formatTrafficIn"
           sortable>
       </el-table-column>
       <el-table-column
-          label="³öÈ¥Á÷Á¿"
+          label="å‡ºåŽ»æµé‡"
           prop="traffic_out"
           :formatter="formatTrafficOut"
           sortable>
       </el-table-column>
       <el-table-column
-          label="×´Ì¬"
+          label="çŠ¶æ€"
           prop="status"
           sortable>
         <template slot-scope="scope">

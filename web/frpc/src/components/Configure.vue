@@ -1,9 +1,9 @@
 <template>
     <div>
-        <el-row id="head">
-            <el-button type="primary" @click="fetchData">Refresh</el-button>
-            <el-button type="primary" @click="uploadConfig">Upload</el-button>
-        </el-row>
+<!--        <el-row id="head">-->
+<!--            <el-button type="primary" @click="fetchData">Refresh</el-button>-->
+<!--            <el-button type="primary" @click="uploadConfig">Upload</el-button>-->
+<!--        </el-row>-->
         <el-input type="textarea" autosize v-model="textarea" placeholder="frpc configrue file, can not be empty..."></el-input>
     </div>
 </template>

@@ -207,7 +207,7 @@ func (pw *Wrapper) statusNormalCallback() {
 		default:
 		}
 	})
-	xl.Info("health check success")
+	xl.Info("心跳检测成功")
 }
 
 func (pw *Wrapper) statusFailedCallback() {

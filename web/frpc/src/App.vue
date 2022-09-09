@@ -2,16 +2,16 @@
     <div id="app">
         <header class="grid-content header-color">
             <el-row>
-                <a class="brand" href="#">frp client</a>
+                <a class="brand" href="#">chrelyonly-frp-客户端管理</a>
             </el-row>
         </header>
         <section>
             <el-row>
                 <el-col id="side-nav" :xs="24" :md="4">
                     <el-menu default-active="1" mode="vertical" theme="light" router="false" @select="handleSelect">
-                        <el-menu-item index="/">Overview</el-menu-item>
-                        <el-menu-item index="/configure">Configure</el-menu-item>
-                        <el-menu-item index="">Help</el-menu-item>
+                        <el-menu-item index="/">概述</el-menu-item>
+                        <el-menu-item index="/configure">查看配置</el-menu-item>
+                        <el-menu-item index="">帮助文档</el-menu-item>
                     </el-menu>
 				</el-col>
 

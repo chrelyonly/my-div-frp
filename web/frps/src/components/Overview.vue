@@ -4,40 +4,40 @@
             <el-col :md="12">
                 <div class="source">
                     <el-form label-position="left" class="server_info">
-                        <el-form-item label="frp°æ±¾">
+                        <el-form-item label="frpç‰ˆæœ¬">
                           <span>{{ version }}</span>
                         </el-form-item>
-                        <el-form-item label="·þÎñ¶Ë¿Ú">
+                        <el-form-item label="æœåŠ¡ç«¯å£">
                           <span>{{ bind_port }}</span>
                         </el-form-item>
-                        <el-form-item label="¸¨Öúudp¶Ë¿Ú">
+                        <el-form-item label="è¾…åŠ©udpç«¯å£">
                           <span>{{ bind_udp_port }}</span>
                         </el-form-item>
-                        <el-form-item label="Http¶Ë¿Ú">
+                        <el-form-item label="Httpç«¯å£">
                           <span>{{ vhost_http_port }}</span>
                         </el-form-item>
-                        <el-form-item label="Https¶Ë¿Ú">
+                        <el-form-item label="Httpsç«¯å£">
                           <span>{{ vhost_https_port }}</span>
                         </el-form-item>
-                        <el-form-item label="×ÓÓòÃû">
+                        <el-form-item label="å­åŸŸå">
                           <span>{{ subdomain_host }}</span>
                         </el-form-item>
-                        <el-form-item label="×î´óÁ¬½ÓÊý">
+                        <el-form-item label="æœ€å¤§è¿žæŽ¥æ•°">
                           <span>{{ max_pool_count }}</span>
                         </el-form-item>
-                        <el-form-item label="Ã¿¸ö¿Í»§¶Ë×î´ó¶Ë¿ÚÊý">
+                        <el-form-item label="æ¯ä¸ªå®¢æˆ·ç«¯æœ€å¤§ç«¯å£æ•°">
                           <span>{{ max_ports_per_client }}</span>
                         </el-form-item>
-                        <el-form-item label="ÐÄÌø³¬Ê±">
+                        <el-form-item label="å¿ƒè·³è¶…æ—¶">
                           <span>{{ heart_beat_timeout }}</span>
                         </el-form-item>
-                        <el-form-item label="¿Í»§Í³¼Æ">
+                        <el-form-item label="å®¢æˆ·ç»Ÿè®¡">
                           <span>{{ client_counts }}</span>
                         </el-form-item>
-                        <el-form-item label="µ±Ç°Á¬½Ó">
+                        <el-form-item label="å½“å‰è¿žæŽ¥">
                           <span>{{ cur_conns }}</span>
                         </el-form-item>
-                        <el-form-item label="´úÀíÊýÁ¿">
+                        <el-form-item label="ä»£ç†æ•°é‡">
                           <span>{{ proxy_counts }}</span>
                         </el-form-item>
                     </el-form>

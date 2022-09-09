@@ -13,7 +13,7 @@ function DrawTrafficChart(elementId, trafficIn, trafficOut) {
 
     let option = {
         title: {
-            text: '网络流量',
+            text: '缃戠粶娴侀噺',
             subtext: 'today',
             x: 'center'
         },
@@ -29,10 +29,10 @@ function DrawTrafficChart(elementId, trafficIn, trafficOut) {
             center: ['50%', '60%'],
             data: [{
                 value: trafficIn,
-                name: '流入'
+                name: '娴佸叆'
             }, {
                 value: trafficOut,
-                name: '流出'
+                name: '娴佸嚭'
             }, ],
             itemStyle: {
                 emphasis: {
@@ -53,7 +53,7 @@ function DrawProxyChart(elementId, serverInfo) {
 
     let option = {
         title: {
-            text: '代理流量',
+            text: '浠ｇ悊娴侀噺',
             subtext: 'now',
             x: 'center'
         },
