@@ -98,6 +98,7 @@ var rootCmd = &cobra.Command{
 	Use:   "frpc",
 	Short: "frpc is the client of frp (https://github.com/fatedier/frp)",
 	RunE: func(cmd *cobra.Command, args []string) error {
+		log.Info("运行版本: " + version.Full())
 		if showVersion {
 			fmt.Println(version.Full())
 			return nil

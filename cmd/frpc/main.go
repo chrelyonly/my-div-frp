@@ -17,8 +17,10 @@ package main
 import (
 	_ "github.com/fatedier/frp/assets/frpc"
 	"github.com/fatedier/frp/cmd/frpc/sub"
+	"github.com/fatedier/frp/pkg/util/log"
 )
 
 func main() {
+	log.Info("开始连接服务器")
 	sub.Execute()
 }

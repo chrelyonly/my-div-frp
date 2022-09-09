@@ -129,7 +129,7 @@ func (svr *Service) Run() error {
 	for {
 		conn, session, err := svr.login()
 		if err != nil {
-			xl.Warn("login to server failed: %v", err)
+			xl.Warn("连接到服务失败: %v", err)
 
 			// if login_fail_exit is true, just exit this program
 			// otherwise sleep a while and try again to connect to server
@@ -354,7 +354,7 @@ func (svr *Service) login() (conn net.Conn, session *fmux.Session, err error) {
 	xl.AppendPrefix(svr.runID)
 
 	svr.serverUDPPort = loginRespMsg.ServerUDPPort
-	xl.Info("login to server success, get run id [%s], server udp port [%d]", loginRespMsg.RunID, loginRespMsg.ServerUDPPort)
+	xl.Info("连接到服务器成功,运行id [%s], 服务器udp端口 [%d]", loginRespMsg.RunID, loginRespMsg.ServerUDPPort)
 	return
 }
 
