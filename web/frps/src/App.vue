@@ -2,16 +2,16 @@
     <div id="app">
         <header class="grid-content header-color">
             <el-row>
-                <a class="brand" href="#">frp</a>
+                <a class="brand" href="#">chrelyonly-frp</a>
             </el-row>
         </header>
         <section>
             <el-row>
                 <el-col id="side-nav" :xs="24" :md="4">
                     <el-menu default-active="1" mode="vertical" theme="light" router="false" @select="handleSelect">
-                        <el-menu-item index="/">Overview</el-menu-item>
+                        <el-menu-item index="/">描述</el-menu-item>
                         <el-submenu index="/proxies">
-                            <template slot="title">Proxies</template>
+                            <template slot="title">代理分类</template>
                             <el-menu-item index="/proxies/tcp">TCP</el-menu-item>
                             <el-menu-item index="/proxies/udp">UDP</el-menu-item>
                             <el-menu-item index="/proxies/http">HTTP</el-menu-item>
@@ -19,7 +19,7 @@
                             <el-menu-item index="/proxies/stcp">STCP</el-menu-item>
                             <el-menu-item index="/proxies/sudp">SUDP</el-menu-item>
                         </el-submenu>
-                        <el-menu-item index="">Help</el-menu-item>
+                        <el-menu-item index="">帮助文档</el-menu-item>
                     </el-menu>
 				</el-col>
 

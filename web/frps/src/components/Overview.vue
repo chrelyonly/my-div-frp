@@ -4,40 +4,40 @@
             <el-col :md="12">
                 <div class="source">
                     <el-form label-position="left" class="server_info">
-                        <el-form-item label="Version">
+                        <el-form-item label="frp版本">
                           <span>{{ version }}</span>
                         </el-form-item>
-                        <el-form-item label="BindPort">
+                        <el-form-item label="服务端口">
                           <span>{{ bind_port }}</span>
                         </el-form-item>
-                        <el-form-item label="BindUdpPort">
+                        <el-form-item label="辅助udp端口">
                           <span>{{ bind_udp_port }}</span>
                         </el-form-item>
-                        <el-form-item label="Http Port">
+                        <el-form-item label="Http端口">
                           <span>{{ vhost_http_port }}</span>
                         </el-form-item>
-                        <el-form-item label="Https Port">
+                        <el-form-item label="Https端口">
                           <span>{{ vhost_https_port }}</span>
                         </el-form-item>
-                        <el-form-item label="Subdomain Host">
+                        <el-form-item label="子域名">
                           <span>{{ subdomain_host }}</span>
                         </el-form-item>
-                        <el-form-item label="Max PoolCount">
+                        <el-form-item label="最大连接数">
                           <span>{{ max_pool_count }}</span>
                         </el-form-item>
-                        <el-form-item label="Max Ports Per Client">
+                        <el-form-item label="每个客户端最大端口数">
                           <span>{{ max_ports_per_client }}</span>
                         </el-form-item>
-                        <el-form-item label="HeartBeat Timeout">
+                        <el-form-item label="心跳超时">
                           <span>{{ heart_beat_timeout }}</span>
                         </el-form-item>
-                        <el-form-item label="Client Counts">
+                        <el-form-item label="客户统计">
                           <span>{{ client_counts }}</span>
                         </el-form-item>
-                        <el-form-item label="Current Connections">
+                        <el-form-item label="当前连接">
                           <span>{{ cur_conns }}</span>
                         </el-form-item>
-                        <el-form-item label="Proxy Counts">
+                        <el-form-item label="代理数量">
                           <span>{{ proxy_counts }}</span>
                         </el-form-item>
                     </el-form>

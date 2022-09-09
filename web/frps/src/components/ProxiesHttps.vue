@@ -42,42 +42,42 @@
         </el-form>
     </template>
     </el-table-column>
-    <el-table-column
-      label="Name"
-      prop="name"
-      sortable>
-    </el-table-column>
-    <el-table-column
-      label="Port"
-      prop="port"
-      sortable>
-    </el-table-column>
-    <el-table-column
-      label="Connections"
-      prop="conns"
-      sortable>
-    </el-table-column>
-    <el-table-column
-      label="Traffic In"
-      prop="traffic_in"
-      :formatter="formatTrafficIn"
-      sortable>
-    </el-table-column>
-    <el-table-column
-      label="Traffic Out"
-      prop="traffic_out"
-      :formatter="formatTrafficOut"
-      sortable>
-    </el-table-column>
-    <el-table-column
-      label="status"
-      prop="status"
-      sortable>
-      <template slot-scope="scope">
-        <el-tag type="success" v-if="scope.row.status === 'online'">{{ scope.row.status }}</el-tag>
-        <el-tag type="danger" v-else>{{ scope.row.status }}</el-tag>
-      </template>
-    </el-table-column>
+      <el-table-column
+          label="接入名称"
+          prop="name"
+          sortable>
+      </el-table-column>
+      <el-table-column
+          label="转发端口"
+          prop="port"
+          sortable>
+      </el-table-column>
+      <el-table-column
+          label="连接数"
+          prop="conns"
+          sortable>
+      </el-table-column>
+      <el-table-column
+          label="进入流量"
+          prop="traffic_in"
+          :formatter="formatTrafficIn"
+          sortable>
+      </el-table-column>
+      <el-table-column
+          label="出去流量"
+          prop="traffic_out"
+          :formatter="formatTrafficOut"
+          sortable>
+      </el-table-column>
+      <el-table-column
+          label="状态"
+          prop="status"
+          sortable>
+        <template slot-scope="scope">
+          <el-tag type="success" v-if="scope.row.status === 'online'">{{ scope.row.status }}</el-tag>
+          <el-tag type="danger" v-else>{{ scope.row.status }}</el-tag>
+        </template>
+      </el-table-column>
 </el-table>
 
 </div>
