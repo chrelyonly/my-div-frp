@@ -86,8 +86,8 @@ func (m *Manager) Login(content *LoginContent) (*LoginContent, error) {
 	for _, p := range m.loginPlugins {
 		res, retContent, err = p.Handle(ctx, OpLogin, *content)
 		if err != nil {
-			xl.Warn("send Login request to plugin [%s] error: %v", p.Name(), err)
-			return nil, errors.New("send Login request to plugin error")
+			xl.Warn("向登录插件发送请求错误 [%s] error: %v", p.Name(), err)
+			return nil, errors.New("向登录插件发送请求错误")
 		}
 		if res.Reject {
 			return nil, fmt.Errorf("%s", res.RejectReason)

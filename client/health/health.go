@@ -103,17 +103,17 @@ func (monitor *Monitor) checkWorker() {
 		}
 
 		if err == nil {
-			xl.Trace("do one health check success")
+			xl.Trace("心跳正常")
 			if !monitor.statusOK && monitor.statusNormalFn != nil {
-				xl.Info("health check status change to success")
+				xl.Info("运行状况检查状态更改为成功")
 				monitor.statusOK = true
 				monitor.statusNormalFn()
 			}
 		} else {
-			xl.Warn("do one health check failed: %v", err)
+			xl.Warn("连接状态心跳获取失败: %v", err)
 			monitor.failedTimes++
 			if monitor.statusOK && int(monitor.failedTimes) >= monitor.maxFailedTimes && monitor.statusFailedFn != nil {
-				xl.Warn("health check status change to failed")
+				xl.Warn("运行状况检查状态更改为失败")
 				monitor.statusOK = false
 				monitor.statusFailedFn()
 			}

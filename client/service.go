@@ -157,9 +157,9 @@ func (svr *Service) Run() error {
 		address := net.JoinHostPort(svr.cfg.AdminAddr, strconv.Itoa(svr.cfg.AdminPort))
 		err := svr.RunAdminServer(address)
 		if err != nil {
-			log.Warn("run admin server error: %v", err)
+			log.Warn("启动客户端管理web界面出现错误: %v", err)
 		}
-		log.Info("admin server listen on %s:%d", svr.cfg.AdminAddr, svr.cfg.AdminPort)
+		log.Info("已启动客户端管理web界面 %s:%d", svr.cfg.AdminAddr, svr.cfg.AdminPort)
 	}
 	<-svr.ctx.Done()
 	return nil

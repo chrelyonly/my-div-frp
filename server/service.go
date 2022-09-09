@@ -148,7 +148,7 @@ func NewService(cfg config.ServerCommonConf) (svr *Service, err error) {
 
 	for _, name := range pluginNames {
 		svr.pluginManager.Register(plugin.NewHTTPPluginOptions(cfg.HTTPPlugins[name]))
-		log.Info("plugin [%s] has been registered", name)
+		log.Info("插件 [%s] 已注册", name)
 	}
 	svr.rc.PluginManager = svr.pluginManager
 
@@ -238,7 +238,7 @@ func NewService(cfg config.ServerCommonConf) (svr *Service, err error) {
 		go func() {
 			_ = server.Serve(l)
 		}()
-		log.Info("http service listen on %s", address)
+		log.Info("已承载http服务  %s", address)
 	}
 
 	// Create https vhost muxer.
@@ -253,7 +253,7 @@ func NewService(cfg config.ServerCommonConf) (svr *Service, err error) {
 				err = fmt.Errorf("create server listener error, %v", err)
 				return
 			}
-			log.Info("https service listen on %s", address)
+			log.Info("已承载https服务 %s", address)
 		}
 
 		svr.rc.VhostHTTPSMuxer, err = vhost.NewHTTPSMuxer(l, vhostReadWriteTimeout)
@@ -279,7 +279,7 @@ func NewService(cfg config.ServerCommonConf) (svr *Service, err error) {
 			return
 		}
 		svr.rc.NatHoleController = nc
-		log.Info("nat hole udp service listen on %s", address)
+		log.Info("使用udp该端口辅助服务器端口打通nat %s", address)
 	}
 
 	var statsEnable bool
@@ -294,7 +294,7 @@ func NewService(cfg config.ServerCommonConf) (svr *Service, err error) {
 			err = fmt.Errorf("create dashboard web server error, %v", err)
 			return
 		}
-		log.Info("Dashboard listen on %s", address)
+		log.Info("已启动web管理面板 %s", address)
 		statsEnable = true
 	}
 	if statsEnable {
