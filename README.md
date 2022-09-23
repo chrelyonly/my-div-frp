@@ -5,6 +5,8 @@
 [![GitHub release](https://img.shields.io/github/tag/fatedier/frp.svg?label=release)](https://github.com/fatedier/frp/releases)
 # 源站 https://github.com/fatedier/frp
 
+## 2022年9月23日14:03:23
+### 1.优化一些提示
 
 ## 2022-9-9 10:53:32
 ### 1.对部分提示进行调整
