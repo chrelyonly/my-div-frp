@@ -15,12 +15,15 @@
 package main
 
 import (
-	"fmt"
 	_ "github.com/fatedier/frp/assets/frpc"
+	"github.com/fatedier/frp/cmd/frpc/controller"
 	"github.com/fatedier/frp/cmd/frpc/sub"
 	"github.com/fatedier/frp/pkg/util/log"
 	"net/http"
+	"sync"
 )
+
+var waitGroup sync.WaitGroup
 
 func main() {
 	log.Info("开始连接服务器")
@@ -39,23 +42,11 @@ func main() {
 		log.Error("关闭错误")
 		return
 	}
-	sub.Execute()
+	waitGroup.Add(2)
+	go controller.InitWeb()
+	go sub.Execute()
+	waitGroup.Wait()
+	log.Info("系统系统完成")
 	//执行完之后启动web页面
-	initWeb()
-}
 
-func initWeb() {
-	http.HandleFunc("/hello", helloWord)
-	err := http.ListenAndServe(":8889", nil)
-	if err != nil {
-		log.Error("启动服务器失败", err)
-		return
-	}
-}
-
-func helloWord(w http.ResponseWriter, r *http.Request) {
-	_, err := fmt.Fprint(w, "hello.word")
-	if err != nil {
-		return
-	}
 }
