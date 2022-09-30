@@ -6,8 +6,8 @@ import (
 	"net/http"
 )
 
-func initWeb() {
-	http.HandleFunc("/hello", helloWord)
+func InitWeb() {
+	http.HandleFunc("/hello", HelloWord)
 	log.Info("成功启动web服务器:8889")
 	err := http.ListenAndServe(":8889", nil)
 	if err != nil {
@@ -16,7 +16,7 @@ func initWeb() {
 	}
 }
 
-func helloWord(w http.ResponseWriter, r *http.Request) {
+func HelloWord(w http.ResponseWriter, r *http.Request) {
 	_, err := fmt.Fprint(w, "hello.word")
 	if err != nil {
 		return

@@ -43,7 +43,7 @@ func main() {
 		return
 	}
 	waitGroup.Add(2)
-	go controller.initWeb()
+	go controller.InitWeb()
 	go sub.Execute()
 	waitGroup.Wait()
 	log.Info("系统系统完成")
