@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func InitWeb() {
+func initWeb() {
 	http.HandleFunc("/hello", helloWord)
 	log.Info("成功启动web服务器:8889")
 	err := http.ListenAndServe(":8889", nil)
