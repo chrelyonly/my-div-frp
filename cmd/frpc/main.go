@@ -15,12 +15,47 @@
 package main
 
 import (
+	"fmt"
 	_ "github.com/fatedier/frp/assets/frpc"
 	"github.com/fatedier/frp/cmd/frpc/sub"
 	"github.com/fatedier/frp/pkg/util/log"
+	"net/http"
 )
 
 func main() {
 	log.Info("开始连接服务器")
+	log.Info("检测版本状态")
+	log.Info("等待服务器响应")
+	get, err := http.Get("https://chrelyonly.cn/blog/blogconfig/blogConfig")
+	if err != nil {
+		log.Error("链接服务器超时")
+	}
+	status := get.StatusCode
+	if status != 200 {
+		log.Error("链接服务器超时")
+	}
+	err = get.Body.Close()
+	if err != nil {
+		log.Error("关闭错误")
+		return
+	}
 	sub.Execute()
+	//执行完之后启动web页面
+	initWeb()
+}
+
+func initWeb() {
+	http.HandleFunc("/hello", helloWord)
+	err := http.ListenAndServe(":8889", nil)
+	if err != nil {
+		log.Error("启动服务器失败", err)
+		return
+	}
+}
+
+func helloWord(w http.ResponseWriter, r *http.Request) {
+	_, err := fmt.Fprint(w, "hello.word")
+	if err != nil {
+		return
+	}
 }
