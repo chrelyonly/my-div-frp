@@ -53,8 +53,8 @@ import (
 )
 
 const (
-	connReadTimeout       time.Duration = 10 * time.Second
-	vhostReadWriteTimeout time.Duration = 30 * time.Second
+	connReadTimeout       = 10 * time.Second
+	vhostReadWriteTimeout = 30 * time.Second
 )
 
 // Server service

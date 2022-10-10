@@ -15,7 +15,7 @@ import (
 )
 
 type Manager struct {
-	sendCh  chan (msg.Message)
+	sendCh  chan msg.Message
 	proxies map[string]*Wrapper
 
 	closed bool
@@ -29,7 +29,7 @@ type Manager struct {
 	ctx context.Context
 }
 
-func NewManager(ctx context.Context, msgSendCh chan (msg.Message), clientCfg config.ClientCommonConf, serverUDPPort int) *Manager {
+func NewManager(ctx context.Context, msgSendCh chan msg.Message, clientCfg config.ClientCommonConf, serverUDPPort int) *Manager {
 	return &Manager{
 		sendCh:        msgSendCh,
 		proxies:       make(map[string]*Wrapper),

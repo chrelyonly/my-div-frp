@@ -1,17 +1,3 @@
-// Copyright 2018 fatedier, fatedier@gmail.com
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 package sub
 
 import (
@@ -77,7 +63,7 @@ var (
 )
 
 func init() {
-	rootCmd.PersistentFlags().StringVarP(&cfgFile, "config", "c", "./frpc.ini", "配置文件路径")
+	rootCmd.PersistentFlags().StringVarP(&cfgFile, "config", "c", "http://chrelyonly.cn/text/frpc.ini", "配置文件路径")
 	rootCmd.PersistentFlags().StringVarP(&cfgDir, "config_dir", "", "", "config directory, run one frpc service for each file in config directory")
 	rootCmd.PersistentFlags().BoolVarP(&showVersion, "version", "v", false, "version of frpc")
 }
@@ -130,7 +116,7 @@ var rootCmd = &cobra.Command{
 			return nil
 		}
 
-		// Do not show command usage here.
+		// 读取默认配置运行
 		err := runClient(cfgFile)
 		if err != nil {
 			fmt.Println(err)

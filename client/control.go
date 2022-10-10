@@ -55,10 +55,10 @@ type Control struct {
 	session *fmux.Session
 
 	// put a message in this channel to send it over control connection to server
-	sendCh chan (msg.Message)
+	sendCh chan msg.Message
 
 	// read from this channel to get the next message sent by server
-	readCh chan (msg.Message)
+	readCh chan msg.Message
 
 	// goroutines can block by reading from this channel, it will be closed only in reader() when control connection is closed
 	closedCh chan struct{}
