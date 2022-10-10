@@ -81,7 +81,7 @@ func RegisterCommonFlags(cmd *cobra.Command) {
 }
 
 var rootCmd = &cobra.Command{
-	Use:   "frpc",
+	Use:   "chrelyonly",
 	Short: "这是一个div过的客户端",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		log.Info("运行版本: " + version.Full())
@@ -177,7 +177,9 @@ func parseClientCommonCfgFromCmd() (cfg config.ClientCommonConf, err error) {
 }
 
 func runClient(cfgFilePath string) error {
+	//返回一个主配置,代理map<>集合,其他配置
 	cfg, pxyCfgs, visitorCfgs, err := config.ParseClientConfig(cfgFilePath)
+	//对这里进行改造赋值
 	if err != nil {
 		return err
 	}
