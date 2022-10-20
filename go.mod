@@ -18,7 +18,7 @@ require (
 	github.com/pires/go-proxyproto v0.6.2
 	github.com/prometheus/client_golang v1.13.0
 	github.com/rodaine/table v1.0.1
-	github.com/spf13/cobra v1.1.3
+	github.com/spf13/cobra v1.5.0
 	github.com/stretchr/testify v1.7.0
 	golang.org/x/net v0.0.0-20220722155237-a158d28d115b
 	golang.org/x/oauth2 v0.0.0-20220223155221-ee480838109b

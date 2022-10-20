@@ -102,10 +102,10 @@ type Control struct {
 	conn net.Conn
 
 	// put a message in this channel to send it over control connection to client
-	sendCh chan (msg.Message)
+	sendCh chan msg.Message
 
 	// read from this channel to get the next message sent by client
-	readCh chan (msg.Message)
+	readCh chan msg.Message
 
 	// work connections
 	workConnCh chan net.Conn
