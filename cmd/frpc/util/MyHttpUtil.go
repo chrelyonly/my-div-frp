@@ -6,6 +6,7 @@ import (
 	"github.com/fatedier/frp/pkg/util/log"
 	"io/ioutil"
 	"net/http"
+	"strconv"
 )
 
 func MyHttpUtil(url string, method string) (res entity.R) {
@@ -23,6 +24,7 @@ func MyHttpUtil(url string, method string) (res entity.R) {
 	status := get.StatusCode
 	if status != 200 {
 		log.Info("链接服务器超时")
+		log.Info("返回状态" + strconv.Itoa(status))
 	}
 	body, err := ioutil.ReadAll(get.Body)
 	if err != nil {
