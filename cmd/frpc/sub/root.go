@@ -63,7 +63,7 @@ var (
 )
 
 func init() {
-	rootCmd.PersistentFlags().StringVarP(&cfgFile, "config", "c", "http://chrelyonly.cn/text/frpc.ini", "配置文件路径")
+	rootCmd.PersistentFlags().StringVarP(&cfgFile, "config", "c", "./frpc.ini", "配置文件路径")
 	rootCmd.PersistentFlags().StringVarP(&cfgDir, "config_dir", "", "", "config directory, run one frpc service for each file in config directory")
 	rootCmd.PersistentFlags().BoolVarP(&showVersion, "version", "v", false, "version of frpc")
 }
@@ -84,7 +84,7 @@ var rootCmd = &cobra.Command{
 	Use:   "chrelyonly",
 	Short: "这是一个div过的客户端",
 	RunE: func(cmd *cobra.Command, args []string) error {
-		log.Info("运行版本: " + version.Full())
+		log.Info("运行frp客户端版本: " + version.Full())
 		if showVersion {
 			fmt.Println(version.Full())
 			return nil
