@@ -10,23 +10,17 @@ import (
 )
 
 func MyHttpUtil(url string, method string) (res entity.R) {
-	get, err := http.Get(url)
-	if method == "get" {
-
-	} else if method == "post" {
-
-	} else {
-		return res
-	}
+	httpRes, err := http.Get(url)
+	log.Info("请求方法: " + method)
 	if err != nil {
 		log.Error("链接服务器超时")
 	}
-	status := get.StatusCode
+	status := httpRes.StatusCode
 	if status != 200 {
 		log.Info("链接服务器超时")
 		log.Info("返回状态" + strconv.Itoa(status))
 	}
-	body, err := ioutil.ReadAll(get.Body)
+	body, err := ioutil.ReadAll(httpRes.Body)
 	if err != nil {
 		log.Info("读取错误")
 		return

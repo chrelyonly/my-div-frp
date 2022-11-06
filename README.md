@@ -5,6 +5,13 @@
 [![GitHub release](https://img.shields.io/github/tag/fatedier/frp.svg?label=release)](https://github.com/fatedier/frp/releases)
 # 源站 https://github.com/fatedier/frp
 
+## 2022年11月6日11:55:52
+### 1.同步官方代码
+### 2.优化一些提示
+
+## 2022年10月30日15:09:45
+### 1.同步官方代码
+### 2.优化一些提示
 
 ## 2022年10月26日22:58:07
 ### 1.同步官方代码
