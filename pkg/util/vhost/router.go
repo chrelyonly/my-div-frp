@@ -7,7 +7,7 @@ import (
 	"sync"
 )
 
-var ErrRouterConfigConflict = errors.New("router config conflict")
+var ErrRouterConfigConflict = errors.New("router myConfig conflict")
 
 type routerByHTTPUser map[string][]*Router
 

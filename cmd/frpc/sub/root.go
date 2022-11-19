@@ -2,6 +2,7 @@ package sub
 
 import (
 	"fmt"
+	"github.com/fatedier/frp/cmd/frpc/myConfig"
 	"io/fs"
 	"net"
 	"os"
@@ -178,12 +179,21 @@ func parseClientCommonCfgFromCmd() (cfg config.ClientCommonConf, err error) {
 
 func runClient(cfgFilePath string) error {
 	//返回一个主配置,代理map<>集合,其他配置
-	cfg, pxyCfgs, visitorCfgs, err := config.ParseClientConfig(cfgFilePath)
-	//对这里进行改造赋值
-	if err != nil {
-		return err
+	if myConfig.IsNet {
+		cfg, pxyCfgs, visitorCfgs, err := config.ParseClientNetConfig()
+		//对这里进行改造赋值
+		if err != nil {
+			return err
+		}
+		return startService(cfg, pxyCfgs, visitorCfgs, cfgFilePath)
+	} else {
+		cfg, pxyCfgs, visitorCfgs, err := config.ParseClientConfig(cfgFilePath)
+		//对这里进行改造赋值
+		if err != nil {
+			return err
+		}
+		return startService(cfg, pxyCfgs, visitorCfgs, cfgFilePath)
 	}
-	return startService(cfg, pxyCfgs, visitorCfgs, cfgFilePath)
 }
 
 func startService(
@@ -195,9 +205,11 @@ func startService(
 	log.InitLog(cfg.LogWay, cfg.LogFile, cfg.LogLevel,
 		cfg.LogMaxDays, cfg.DisableLogColor)
 
-	if cfgFile != "" {
-		log.Trace("start frpc service for config file [%s]", cfgFile)
-		defer log.Trace("frpc service for config file [%s] stopped", cfgFile)
+	if !myConfig.IsNet {
+		if cfgFile != "" {
+			log.Trace("start frpc service for config file [%s]", cfgFile)
+			defer log.Trace("frpc service for config file [%s] stopped", cfgFile)
+		}
 	}
 	svr, errRet := client.NewService(cfg, pxyCfgs, visitorCfgs, cfgFile)
 	if errRet != nil {
