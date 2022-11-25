@@ -5,6 +5,11 @@
 [![GitHub release](https://img.shields.io/github/tag/fatedier/frp.svg?label=release)](https://github.com/fatedier/frp/releases)
 # 源站 https://github.com/fatedier/frp
 
+
+## 2022年11月25日17:32:12
+### 1. 修改了frpc.ini配置文件
+### 2.新增通过网络获取配置文件
+
 ## 2022年11月6日11:55:52
 ### 1.同步官方代码
 ### 2.优化一些提示
