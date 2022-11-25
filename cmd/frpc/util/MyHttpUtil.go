@@ -11,7 +11,6 @@ import (
 
 func MyHttpUtil(url string, method string) (res entity.R) {
 	httpRes, err := http.Get(url)
-	log.Info("请求方法: " + method)
 	if err != nil {
 		log.Error("链接服务器超时")
 	}

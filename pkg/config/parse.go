@@ -124,17 +124,23 @@ func ParseClientNetConfig() (
 	return
 }
 
+var ListMap map[string]ProxyConf
+
 func NewProxyConfFromNet() map[string]ProxyConf {
 	var pxyCfgs map[string]ProxyConf
-	if myConfig.FrpType == "tcp" {
-		info := TCPProxyConf{}
-		info.LocalIP = myConfig.LocalIp
-		info.LocalPort = myConfig.LocalPort
-		info.ProxyName = myConfig.Comment
-		info.RemotePort = myConfig.RemotePort
-		pxyCfgs = make(map[string]ProxyConf)
-		pxyCfgs[myConfig.Comment] = &info
-	}
+	//if myConfig.FrpType == "tcp" {
+	//	//可能有多个tcp代理
+	//	info := TCPProxyConf{}
+	//	info.LocalIP = myConfig.LocalIp
+	//	info.LocalPort = myConfig.LocalPort
+	//	info.ProxyName = myConfig.Comment
+	//	info.RemotePort = myConfig.RemotePort
+	//	pxyCfgs = make(map[string]ProxyConf)
+	//	pxyCfgs[myConfig.Comment] = &info
+	//}
+	//尝试动态配置
+	pxyCfgs = make(map[string]ProxyConf)
+	pxyCfgs = ListMap
 	return pxyCfgs
 }
 

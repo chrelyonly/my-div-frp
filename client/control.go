@@ -3,6 +3,8 @@ package client
 import (
 	"context"
 	"crypto/tls"
+	"fmt"
+	"github.com/fatedier/frp/cmd/frpc/myConfig"
 	"io"
 	"net"
 	"runtime/debug"
@@ -161,6 +163,29 @@ func (ctl *Control) HandleNewProxyResp(inMsg *msg.NewProxyResp) {
 		xl.Warn("[%s] 启动代理失败: %v", inMsg.ProxyName, err)
 	} else {
 		xl.Info("[%s] 启动代理成功", inMsg.ProxyName)
+		for i := range myConfig.FrpcConfig {
+			if myConfig.FrpcConfig[i].Comment == inMsg.ProxyName {
+				//主服务器
+				serverAddr := myConfig.ServerAddr
+				//代理标识
+				comment := myConfig.FrpcConfig[i].Comment
+				//代理类型
+				proxyType := myConfig.FrpcConfig[i].Type
+				//代理地址
+				localIp := myConfig.FrpcConfig[i].LocalIp
+				//代理端口
+				localPort := myConfig.FrpcConfig[i].LocalPort
+				//代理域名
+				customDomains := myConfig.FrpcConfig[i].CustomDomains
+				//代理域名
+				remotePort := myConfig.FrpcConfig[i].RemotePort
+				if proxyType == "tcp" {
+					fmt.Println("代理标识: " + comment + "\n代理协议: " + proxyType + "\n本地地址是：" + localIp + ":" + localPort + "\n远程地址是：" + serverAddr + ":" + remotePort)
+				} else if proxyType == "http" {
+					fmt.Println("代理标识: " + comment + "\n代理协议: " + proxyType + "\n本地地址是：" + localIp + ":" + localPort + "\n远程地址是：" + customDomains + ":(80,443,10000,10001选其一)")
+				}
+			}
+		}
 	}
 }
 

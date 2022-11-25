@@ -786,7 +786,7 @@ func HandleTCPWorkConnection(ctx context.Context, localInfo *config.LocalSvrConf
 	)
 	if err != nil {
 		workConn.Close()
-		xl.Error("connect to local service [%s:%d] error: %v", localInfo.LocalIP, localInfo.LocalPort, err)
+		xl.Error("未连接到本地端口 [%s:%d] error: %v", localInfo.LocalIP, localInfo.LocalPort, err)
 		return
 	}
 
