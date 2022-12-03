@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/fatedier/frp/pkg/util/log"
+	"github.com/fatedier/frp/cmd/frps/sub"
 	"math/rand"
 	"time"
 
@@ -14,6 +14,5 @@ import (
 func main() {
 	crypto.DefaultSalt = "frp"
 	rand.Seed(time.Now().UnixNano())
-	log.Info("启动中...")
-	Execute()
+	sub.Execute()
 }
