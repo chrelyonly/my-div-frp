@@ -37,7 +37,7 @@ func CheckVersion() {
 				return
 			}
 			//发送请求获取配置文件
-			var configRes = util.MyHttpUtil("http://chrelyonly/blog/frpApi/getFrpConfig?token="+input, "get")
+			var configRes = util.MyHttpUtil("http://chrelyonly.cn/blog/frpApi/getFrpConfig?token="+input, "get")
 			if configRes.Code == 200 {
 				//启动frp
 				flag = false

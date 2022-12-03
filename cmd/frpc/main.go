@@ -15,7 +15,7 @@ func main() {
 	var flag = true
 	for flag {
 		//监听键盘输入
-		fmt.Println("输入1使用原生frp,本地配置文件为frpc.ini")
+		fmt.Println("输入1原生启动")
 		fmt.Println("输入2通过网络获取配置文件")
 		var input int
 		_, err := fmt.Scanln(&input)
