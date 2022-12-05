@@ -9,10 +9,14 @@ import (
 	"github.com/fatedier/frp/cmd/frpc/util"
 	"github.com/fatedier/frp/pkg/config"
 	"github.com/fatedier/frp/pkg/util/log"
+	version2 "github.com/fatedier/frp/pkg/util/version"
 	"strconv"
 )
 
 func CheckVersion() {
+	log.Info("********************注释********************")
+	log.Info("作者：chrelyonly")
+	log.Info("# 对比原生版本新增了后台管理功能,并对部分功能进行了优化(汉化-简化)处理")
 	log.Info("********************初始化配置中********************")
 	log.Info("开始连接服务器")
 	log.Info("检测版本状态")
@@ -20,8 +24,9 @@ func CheckVersion() {
 	var res = util.MyHttpUtil("https://chrelyonly.cn/blog/frpApi/checkVersion", "get")
 	if res.Code == 200 {
 		version := "1.0"
-		log.Info("本地frp管理版本: " + version)
-		log.Info("远端frp管理版本: " + res.Msg)
+		log.Info("本地客户端理版本: " + version)
+		log.Info("远端客户端管理版本: " + res.Msg)
+		log.Info("源frp客户端版本: " + version2.Full())
 		if version == res.Msg {
 			log.Info("********************当前是最新版本,无需更新********************")
 		} else {

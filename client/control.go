@@ -162,7 +162,6 @@ func (ctl *Control) HandleNewProxyResp(inMsg *msg.NewProxyResp) {
 	if err != nil {
 		xl.Warn("[%s] 启动代理失败: %v", inMsg.ProxyName, err)
 	} else {
-		xl.Info("[%s] 启动代理成功", inMsg.ProxyName)
 		for i := range myConfig.FrpcConfig {
 			if myConfig.FrpcConfig[i].Comment == inMsg.ProxyName {
 				//主服务器
@@ -179,13 +178,15 @@ func (ctl *Control) HandleNewProxyResp(inMsg *msg.NewProxyResp) {
 				customDomains := myConfig.FrpcConfig[i].CustomDomains
 				//代理域名
 				remotePort := myConfig.FrpcConfig[i].RemotePort
+				fmt.Println("************************************配置已加载************************************")
 				if proxyType == "tcp" {
-					fmt.Println("代理标识: " + comment + "\n代理协议: " + proxyType + "\n本地地址是：" + localIp + ":" + localPort + "\n远程地址是：" + serverAddr + ":" + remotePort)
+					fmt.Println("代理标识: " + comment + "\n代理协议: " + proxyType + "\n本地地址：" + localIp + ":" + localPort + "\n外网地址：" + serverAddr + ":" + remotePort)
 				} else if proxyType == "http" {
-					fmt.Println("代理标识: " + comment + "\n代理协议: " + proxyType + "\n本地地址是：" + localIp + ":" + localPort + "\n远程地址是：" + customDomains + ":(80,443,10000,10001选其一)")
+					fmt.Println("代理标识: " + comment + "\n代理协议: " + proxyType + "\n本地地址：" + localIp + ":" + localPort + "\n外网地址：" + customDomains + ":(80,443,10000,10001选其一)")
 				}
 			}
 		}
+		xl.Info("[%s] 启动代理成功", inMsg.ProxyName)
 	}
 }
 
